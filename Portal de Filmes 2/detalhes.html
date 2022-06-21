@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body style="background-color: black;">
+    <h1 id="titulo_filme" style="color: red; display: flex; justify-content: center;"> Filmes</h1>
+    <div class="container">
+        <div id="divDetalheFilme" class="container-fluid">
+        </div>
+    </div>
+    <script>
+        const params = new URLSearchParams(location.search)
+        let id = params.get('id')
+
+        dadosFilmes = JSON.parse(localStorage.getItem('db_filmes'));
+        let idxFilme = dadosFilmes.results.findIndex ((elem) => elem.id == id)
+
+        if (idxFilme > -1) {
+            let filme = dadosFilmes.results[idxFilme]
+            document.getElementById('titulo_filme').innerHTML = `${filme.title}`
+            document.getElementById('divDetalheFilme').innerHTML = `
+            <div class="col-6 card" style="width: 25rem;border: 2px solid; padding: 3px;">
+                <img src="https://image.tmdb.org/t/p/w500${filme.poster_path}" class="card-img-top" alt="Filme">
+            </div>
+                <div class="col-6 card-body" style="display:block;">
+                    <p class="card-text">${filme.overview}</p>
+                    <p class="card-text"><b>Língua Original: </b>${filme.original_language}</p>
+                    <p class="card-text"><b> Título Original: </b>${filme.original_title}</p>
+                    <a href="index.html" class="btn btn-secondary">Voltar</a>
+                </div>
+        `
+        }
+        else {
+            alert('Filme não encontrado');
+        }
+    </script>
+
+
+
+    </script>
+</body>
+
+</html>

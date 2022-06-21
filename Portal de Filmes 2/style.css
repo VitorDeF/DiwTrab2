@@ -1,0 +1,54 @@
+*{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+body{
+    background-color: black;
+}
+
+h1{
+    color: red;
+}
+
+#barramobile{
+    display: flex;
+    align-items: center;
+}
+
+.barrapesquisa{
+    margin: auto;
+}
+
+.titulo h1{
+    margin: auto;
+}
+
+.titulo{
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#divListaFilmes{
+    column-gap: 10px;
+    row-gap: 50px;
+}
+
+.card-img-top{
+    max-width: 300px;
+}
+
+.card {
+    align-items: center;
+    padding: 30px;
+    margin: 0px auto;
+    max-width: 400px;
+    color: white;
+    background-color: #222;
+    border: 1px red solid;
+}
+
+.img_filme{
+    max-height: 150px;
+}
